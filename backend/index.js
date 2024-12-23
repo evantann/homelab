@@ -9,6 +9,13 @@ const PORT = 5000;
 app.use(cors());
 app.use(express.json());
 
+if (db === null) {
+    console.error('Error connecting to database');
+    process.exit(1);
+} else {
+    console.log('Connected to database');
+}
+
 // Routes
 app.get('/items', (req, res) => {
     db.query('SELECT * FROM items', (err, results) => {
