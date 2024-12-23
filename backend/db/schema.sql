@@ -1,0 +1,8 @@
+CREATE DATABASE items_db;
+
+USE items_db;
+
+CREATE TABLE items (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+);
