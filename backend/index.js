@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const db = require('./db/connection.sql');
+const db = require('./db/connection');
 
 const app = express();
 const PORT = 5000;
@@ -8,13 +8,6 @@ const PORT = 5000;
 // Middleware
 app.use(cors());
 app.use(express.json());
-
-if (db === null) {
-    console.error('Error connecting to database');
-    process.exit(1);
-} else {
-    console.log('Connected to database');
-}
 
 // Routes
 app.get('/items', (req, res) => {

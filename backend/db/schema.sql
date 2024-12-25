@@ -1,4 +1,4 @@
-CREATE DATABASE items_db;
+CREATE DATABASE IF NOT EXISTS items_db;
 
 USE items_db;
 
