@@ -1,4 +1,4 @@
-FROM node:23.5.0
+FROM node:23-alpine AS build
 
 WORKDIR /app
 
@@ -8,9 +8,18 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 3000
+RUN npm run build
 
-CMD ["npm", "start"]
+FROM nginx:stable-alpine
+
+# copy build otuput to nginx default location for html files
+COPY --from=build /app/build /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/nginx.conf
+
+EXPOSE 80
+
+# runs docker in the foreground so the container doesn't exit
+CMD ["nginx", "-g", "daemon off;"]
 
 # docker build -t frontend .
-# docker run --name=frontend --network=homelab -d -p 3000:3000 frontend
+# docker run --name=frontend --network=homelab -d -p 80:80 frontend

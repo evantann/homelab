@@ -10,7 +10,7 @@ const App = () => {
 
     const fetchItems = async () => {
         try {
-            const response = await fetch('http://localhost:5000/items');
+            const response = await fetch('/items');
             if (!response.ok) {
                 throw new Error('Failed to fetch items');
             }
@@ -23,7 +23,7 @@ const App = () => {
 
     const addItem = async () => {
         try {
-            const response = await fetch('http://localhost:5000/items', {
+            const response = await fetch('/items', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name: itemName }),
