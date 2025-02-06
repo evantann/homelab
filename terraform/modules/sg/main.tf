@@ -84,18 +84,18 @@ resource "aws_vpc_security_group_ingress_rule" "ilb-http" {
 
 # Private App Subnet Security Group
 
-resource "aws_security_group" "private-app-sg" {
-  name        = "private-app-sg"
+resource "aws_security_group" "app-tier-sg" {
+  name        = "app-tier-sg"
   description = "Allow inbound traffic from internal load balancer for private app subnet"
   vpc_id      = var.vpc_id
 
   tags = {
-    Name = "private-app-sg"
+    Name = "app-tier-sg"
   }
 }
 
 resource "aws_vpc_security_group_ingress_rule" "app-tier" {
-  security_group_id            = aws_security_group.private-app-sg.id
+  security_group_id            = aws_security_group.app-tier-sg.id
   ip_protocol                  = "tcp"
   from_port                    = 5000
   to_port                      = 5000
@@ -119,5 +119,5 @@ resource "aws_vpc_security_group_ingress_rule" "db-tier" {
   ip_protocol                  = "tcp"
   from_port                    = 3306
   to_port                      = 3306
-  referenced_security_group_id = aws_security_group.private-app-sg.id
+  referenced_security_group_id = aws_security_group.app-tier-sg.id
 }
