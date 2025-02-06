@@ -12,7 +12,7 @@ variable "db_password" {
 
 variable "db_subnet_ids" {
   description = "The DB Tier Subnets"
-  type = list(string)
+  type        = list(string)
 }
 
 variable "db_sg_id" {

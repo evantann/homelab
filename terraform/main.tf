@@ -9,10 +9,10 @@ module "sg" {
 }
 
 module "rds" {
-  source = "./modules/rds"
-  project_name = var.project_name
-  db_username = var.db_username
-  db_password = var.db_password
+  source        = "./modules/rds"
+  project_name  = var.project_name
+  db_username   = var.db_username
+  db_password   = var.db_password
   db_subnet_ids = module.vpc.db_subnet_ids
-  db_sg_id = module.sg.db_sg_id
+  db_sg_id      = module.sg.db_sg_id
 }
