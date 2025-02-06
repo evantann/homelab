@@ -4,7 +4,7 @@ backend/node_modules
 # terraform
 .terraform
 .terraform.lock.hcl
-terraform/terraform.tfvars
+*.tfvars
 
 # dependencies
 frontend/node_modules
