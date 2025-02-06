@@ -1,3 +1,3 @@
-variable vpc_id {
+variable "vpc_id" {
   description = "The VPC ID"
 }

@@ -12,7 +12,7 @@ RUN npm run build
 
 FROM nginx:stable-alpine
 
-# copy build otuput to nginx default location for html files
+# copy build output to nginx default location for html files
 COPY --from=build /app/build /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/nginx.conf
 

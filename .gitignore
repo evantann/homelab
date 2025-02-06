@@ -1,6 +1,11 @@
 backend/.env
 backend/node_modules
 
+# terraform
+.terraform
+.terraform.lock.hcl
+terraform/terraform.tfvars
+
 # dependencies
 frontend/node_modules
 /.pnp
