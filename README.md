@@ -1,3 +1,7 @@
+https, rds multi, dns, cloudwatch alarm - auto scaling policy, alb vs nlb
+redo all steps in to make sure guide is accurate
+learn more about components not sure of
+
 ## Instance Profile
 1. Navigate to IAM in the search bar
 2. In the menu, select 'Roles'
@@ -35,7 +39,7 @@
 1. In the menu, select 'Intenet gateways'
 2. Select 'Create internet gateway'
 3. Give a name tag that is associated with the VPC
-4. Select 'Create internet gatway'
+4. Select 'Create internet gateway'
 5. Under 'Actions', select 'Attach to VPC'
 6. Select the VPC
 7. Click on 'Attach internet gateway'
@@ -172,7 +176,7 @@ _Create Target Group_
 20. Under 'Target group name', provide a name (ex. AppTierTargetGroup)
 21. Under 'Protocol:Port', select 'HTTP' and enter '5000' as the port
 22. Under 'VPC', select the VPC
-23. Under 'Health checks', set the path to an endpoing in the code
+23. Under 'Health checks', set the path to an endpoint in the code
 24. Click 'Next' and 'Create target group'
 
 _Create Internal Load Balancer_
@@ -180,7 +184,7 @@ _Create Internal Load Balancer_
 25. In the menu, select 'Load Balancers'
 26. Click on 'Create load balancer'
 27. Under 'Application Load Balancer' click 'Create'
-28. Under 'Load balancer name', provide a name (ex. app-tier-internal-lb)
+28. Under 'Load balancer name', provide a name (ex. internal-lb)
 29. Under 'Scheme', select 'Internal'
 30. Under 'Network mapping', select the VPC
 31. Under 'Mappings', select both subnets and select the private app subnets
@@ -255,7 +259,7 @@ _Define Launch Template_
 
 _Create Auto Scaling Group_
 1. Follow the instructions in the respective section above
-2. Choose the appropriate launch template, web subnets, extneral load balancer, and web tier target group
+2. Choose the appropriate launch template, web subnets, external load balancer, and web tier target group
 
 # Terraform
 
